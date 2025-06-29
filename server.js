@@ -7,12 +7,14 @@ const cors = require("cors");
 require('dotenv').config();
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // Serve static files
 app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors({
+  origin: process.env.FRONTEND_URL 
+}));
 
 // MySQL connection
 const db = mysql.createConnection({
@@ -63,5 +65,5 @@ app.post("/api/waitlist", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
+  console.log(`Server running on port ${port}`);
 });
