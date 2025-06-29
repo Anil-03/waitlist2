@@ -44,6 +44,10 @@ const tableQuery = `
 `;
 db.query(tableQuery);
 
+app.get('/', (req, res) => {
+  res.send('API is running');
+});
+
 // API endpoint
 app.post("/api/waitlist", (req, res) => {
   const { name, email } = req.body;
@@ -63,6 +67,8 @@ app.post("/api/waitlist", (req, res) => {
     res.status(200).json({ message: "Successfully enrolled! We'll update you soon." });
   });
 });
+
+
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
