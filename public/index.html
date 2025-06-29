@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Product Launch</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX'); // Replace with your Google Analytics ID
+  </script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🚀 Welcome to [Your Product Name]</h1>
+      <p>Your gateway to <strong>[brief product pitch]</strong>. Join the waitlist to be the first to test our beta version!</p>
+    </header>
+
+    <section class="product-info">
+      <h2>🔍 What is [Your Product Name]?</h2>
+      <p>[Your Product Name] is an innovative platform designed to [solve a problem or provide a feature]. We aim to simplify your life by offering:</p>
+      <ul>
+        <li>✅ Feature 1: Describe benefit</li>
+        <li>✅ Feature 2: Describe benefit</li>
+        <li>✅ Feature 3: Describe benefit</li>
+      </ul>
+      <img src="https://via.placeholder.com/220x220?text=Product+Image" alt="Product" class="product-image" />
+      <button class="join-btn" onclick="document.getElementById('waitlist-section').scrollIntoView({behavior: 'smooth'})">
+        Join Waitlist
+      </button>
+    </section>
+
+    <section class="how-it-works">
+      <h2>⚙️ How It Works</h2>
+      <p>Sign up below to join the waitlist. You’ll be notified as soon as we’re ready for beta testing. Selected users will get exclusive early access and help shape the future of our platform.</p>
+    </section>
+
+    <section class="waitlist-form-section" id="waitlist-section">
+      <div class="waitlist-card">
+        <h2>✍️ Join the Waitlist</h2>
+        <form id="waitlist-form">
+          <input type="text" id="name" placeholder="Your Name" required />
+          <input type="email" id="email" placeholder="Your Email" required />
+          <button type="submit">Join Waitlist</button>
+        </form>
+        <div id="message"></div>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 [Your Product Name]. All rights reserved.</p>
+    </footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
