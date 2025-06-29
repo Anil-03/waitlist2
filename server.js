@@ -4,6 +4,7 @@ const mysql = require("mysql2");
 const bodyParser = require("body-parser");
 const path = require("path");
 const cors = require("cors");
+require('dotenv').config();
 
 const app = express();
 const port = 3000;
@@ -15,15 +16,19 @@ app.use(cors());
 
 // MySQL connection
 const db = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "root",
-  database: "waitlist_db",
+  host: process.env.MYSQLHOST || process.env.MYSQL_HOST,
+  user: process.env.MYSQLUSER || process.env.MYSQL_USER,
+  password: process.env.MYSQLPASSWORD || process.env.MYSQL_PASSWORD,
+  database: process.env.MYSQLDATABASE || process.env.MYSQL_DATABASE,
+  port: process.env.MYSQLPORT || process.env.MYSQL_PORT,
 });
 
 db.connect((err) => {
-  if (err) throw err;
-  console.log("MySQL Connected...");
+  if (err) {
+    console.error('Error connecting to MySQL:', err.stack);
+    return;
+  }
+  console.log('Connected to MySQL as id ' + db.threadId);
 });
 
 // Create table if not exists
