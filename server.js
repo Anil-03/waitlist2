@@ -39,7 +39,7 @@ const tableQuery = `
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100),
     email VARCHAR(100) UNIQUE,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    
   );
 `;
 db.query(tableQuery);
