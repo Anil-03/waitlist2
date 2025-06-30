@@ -35,7 +35,7 @@ db.connect((err) => {
 
 // Create table if not exists
 const tableQuery = `
-  CREATE TABLE IF NOT EXISTS waitlist (
+  CREATE TABLE IF NOT EXISTS user_list (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100),
     email VARCHAR(100) UNIQUE,
