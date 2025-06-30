@@ -60,7 +60,7 @@ app.post("/api/waitlist", (req, res) => {
     return res.status(400).json({ message: "All fields are required" });
   }
 
-  const sql = "INSERT INTO waitlist (name, email) VALUES (?, ?)";
+  const sql = "INSERT INTO user_waitlist (name, email) VALUES (?, ?)";
   db.query(sql, [name, email], (err) => {
     if (err) {
       console.error("DB error:", err); // 👈 This will show the real problem
