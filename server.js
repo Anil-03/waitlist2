@@ -51,19 +51,23 @@ app.get('/', (req, res) => {
 // API endpoint
 app.post("/api/waitlist", (req, res) => {
   const { name, email } = req.body;
+  console.log("Received:", name, email);
 
   if (!name || !email) {
+    console.log("Missing fields");
     return res.status(400).json({ message: "All fields are required" });
   }
 
   const sql = "INSERT INTO waitlist (name, email) VALUES (?, ?)";
   db.query(sql, [name, email], (err) => {
     if (err) {
+      console.error("DB error:", err); // 👈 This will show the real problem
       if (err.code === "ER_DUP_ENTRY") {
         return res.status(409).json({ message: "You're already enrolled!" });
       }
       return res.status(500).json({ message: "Server error" });
     }
+
     res.status(200).json({ message: "Successfully enrolled! We'll update you soon." });
   });
 });
