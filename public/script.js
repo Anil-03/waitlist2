@@ -5,7 +5,7 @@ document.getElementById('waitlist-form').addEventListener('submit', async functi
   const email = document.getElementById('email').value;
   const messageDiv = document.getElementById('message');
   try {
-    const res = await fetch('/https://mysql-production-abf3.up.railway.app/api/waitlist', {
+    const res = await fetch('/api/waitlist', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, email })
