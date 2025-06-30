@@ -25,13 +25,15 @@ const db = mysql.createPool({
   port: process.env.MYSQLPORT || process.env.MYSQL_PORT,
 });
 
-db.connect((err) => {
+db.getConnection((err, connection) => {
   if (err) {
-    console.error('Error connecting to MySQL:', err.stack);
-    return;
+    console.error('MySQL connection pool error:', err);
+  } else {
+    console.log('✅ MySQL connection pool ready');
+    connection.release(); // Don't forget to release the connection!
   }
-  console.log('Connected to MySQL as id ' + db.threadId);
 });
+
 
 // Create table if not exists
 const tableQuery = `
