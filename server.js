@@ -12,9 +12,7 @@ const port = process.env.PORT || 3000;
 // Serve static files
 app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.json());
-app.use(cors({
-  origin: process.env.FRONTEND_URL 
-}));
+app.use(cors());
 
 // MySQL connection
 const db = mysql.createPool({
